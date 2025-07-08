@@ -49,6 +49,12 @@
             font-size: 1.5rem;
             transition: color 0.3s ease;
         }
+         /* Animated logo */
+        .logo-video {
+            height: 40px;
+            width: auto;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
@@ -57,9 +63,15 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <!-- Logo -->
-                <a class="navbar-brand" fw-bold href="{{ url('/') }}">
-                    Keuanganku
+                <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url('/') }}">
+                    <video autoplay muted loop playsinline class="logo-video">
+                        <source src="{{ asset('images/logo2.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <span>Keuanganku</span>
                 </a>
+
+
 
                 <!-- Toggle button (mobile) -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -95,7 +107,7 @@
                         </li>
 
                         <!-- Hanya tampilkan nama & logout jika user login -->
-                    
+
                         @auth
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

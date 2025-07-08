@@ -184,7 +184,7 @@
                 Gendri Raditya
             </a>
         </p>
-        <a href="https://github.com/gend-raditya/keuanganku" class="btn btn-outline-dark btn-sm px-3" target="_blank">
+        <a href="https://github.com/gend-raditya/keuanganku_gendri" class="btn btn-outline-dark btn-sm px-3" target="_blank">
             <i class="bi bi-github me-1"></i> Lihat Proyek di GitHub
         </a>
     </div>
