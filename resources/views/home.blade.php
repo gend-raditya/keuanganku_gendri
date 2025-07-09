@@ -33,9 +33,9 @@
         </div>
 
         <!-- Filter -->
-        <form method="GET" class="row g-3 mb-4 align-items-end">
+        <form method="GET" class="row g-3 mb-4 align-items-end filter-section">
             <div class="col-md-4">
-                <label for="tahun" class="form-label">Tahun</label>
+                <label for="tahun" class="form-label2">Tahun</label>
                 <select name="tahun" class="form-select">
                     @foreach ($tahunTersedia as $tahun)
                         <option value="{{ $tahun }}" {{ $tahun == $tahunDipilih ? 'selected' : '' }}>
@@ -45,7 +45,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label for="chart" class="form-label">Jenis Grafik</label>
+                <label for="chart" class="form-label2">Jenis Grafik</label>
                 <select name="chart" class="form-select">
                     <option value="bar" {{ $tipeChart == 'bar' ? 'selected' : '' }}>Bar</option>
                     <option value="line" {{ $tipeChart == 'line' ? 'selected' : '' }}>Line</option>
@@ -93,7 +93,8 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4" class="text-center text-muted">Tidak ada dompet tersedia.</td>
+                                            <td colspan="4" class="text-center text-muted">Tidak ada dompet tersedia.
+                                            </td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -118,75 +119,88 @@
     </div>
 
     <style>
-    body {
-        background-color: #f9f5f0;
-        color: #3a3a3a;
-        font-family: 'Poppins', sans-serif;
-    }
+        body {
+            background-color: #f9f5f0;
+            color: #3a3a3a;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    .card {
-        background-color: #fffdfb;
-        border: none;
-        color: #3a3a3a;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-    }
+        .card {
+            background-color: #fffdfb;
+            border: none;
+            color: #3a3a3a;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+        }
 
-    .card-header {
-        background: linear-gradient(to right, #f6e58d, #f9ca24);
-        color: #3a3a3a;
-        border-bottom: none;
-        font-weight: 600;
-    }
+        .card-header {
+            background: linear-gradient(to right, #f6e58d, #f9ca24);
+            color: #3a3a3a;
+            border-bottom: none;
+            font-weight: 600;
+        }
 
-    .table {
-        color: #3a3a3a;
-    }
+        .table {
+            color: #3a3a3a;
+        }
 
-    .table-striped > tbody > tr:nth-of-type(odd) {
-        background-color: #f3efea;
-    }
+        .table-striped>tbody>tr:nth-of-type(odd) {
+            background-color: #f3efea;
+        }
 
-    .bg-light {
-        background-color: #fefaf6 !important;
-    }
-
-    .form-select,
-    .form-label,
-    .form-control {
-        background-color: #fffaf0;
-        color: #3a3a3a;
-        border: 1px solid #c8b57f;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-        border-color: #d4af37;
-        box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.3);
-    }
-
-    .btn-dark {
-        background-color: #d4af37;
-        border-color: #d4af37;
-        color: #fff;
-        font-weight: 500;
-    }
-
-    .btn-dark:hover {
-        background-color: #c39e2c;
-        border-color: #c39e2c;
-    }
-
-    .table-warning {
-        background-color: #fff6d6 !important;
-    }
-
-    .badge.bg-danger {
-        background-color: #d35400 !important;
-        font-size: 0.8rem;
-    }
-</style>
+        .bg-light {
+            background-color: #fefaf6 !important;
+        }
 
 
+        .form-label2 {
+            background-color: transparent !important;
+            /* Hilangkan kotak latar */
+            padding: 0;
+            margin-bottom: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: #3a3a3a;
+            box-shadow: none;
+        }
+
+        .form-control {
+            background-color: #fffaf0;
+            color: #3a3a3a;
+            border: 1px solid #c8b57f;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-dark {
+            background-color: #d4af37;
+            border-color: #d4af37;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .btn-dark:hover {
+            background-color: #c39e2c;
+            border-color: #c39e2c;
+        }
+
+        .table-warning {
+            background-color: #fff6d6 !important;
+        }
+
+        .badge.bg-danger {
+            background-color: #d35400 !important;
+            font-size: 0.8rem;
+        }
+
+        body.dark-mode .form-label2 {
+            color: #f1f1f1;
+        }
+    </style>
 @endsection
 
 @section('scripts')

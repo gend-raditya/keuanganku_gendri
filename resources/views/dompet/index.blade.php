@@ -87,5 +87,8 @@
         color: #0f5132;
         border: 1px solid #badbcc;
     }
+      body.dark-mode h2.text-dark {
+        color: #f1f1f1 !important;
+    }
 </style>
 @endsection

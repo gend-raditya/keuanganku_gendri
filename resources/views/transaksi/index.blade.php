@@ -98,5 +98,8 @@
         .card {
             border: 1px solid #f0e6d6;
         }
+          body.dark-mode h1.text-dark {
+        color: #f1f1f1 !important;
+    }
     </style>
 @endsection
