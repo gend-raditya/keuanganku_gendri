@@ -49,8 +49,9 @@
             font-size: 1.5rem;
             transition: color 0.3s ease;
         }
-         /* Animated logo */
-        .logo-video {
+
+        /* Animated logo */
+        .logo-gif {
             height: 40px;
             width: auto;
             border-radius: 4px;
@@ -64,12 +65,10 @@
             <div class="container">
                 <!-- Logo -->
                 <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url('/') }}">
-                    <video autoplay muted loop playsinline class="logo-video">
-                        <source src="{{ asset('images/logo2.mp4') }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <img src="{{ asset('images/logo2.gif') }}" alt="Logo" class="logo-gif">
                     <span>Keuanganku</span>
                 </a>
+
 
 
 
@@ -91,6 +90,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('transaksi.index') }}">Transaksi</a>
                             </li>
+
+                            <li class="nav-item">
+            <a class="nav-link" href="{{ route('dompet.index') }}">Dompet</a>
+        </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('kategori.index') }}">Kategori</a>
                             </li>

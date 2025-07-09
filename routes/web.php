@@ -3,6 +3,7 @@
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DompetController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\GoogleController;
@@ -41,3 +42,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+//tambah dompet
+Route::get('/dompet/create', [DompetController::class, 'create'])->name('dompet.create');
+Route::post('/dompet', [DompetController::class, 'store'])->name('dompet.store');
+

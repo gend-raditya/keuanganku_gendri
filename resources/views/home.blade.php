@@ -7,7 +7,7 @@
         <!-- Ringkasan Saldo -->
         <div class="row mb-4">
             <div class="col-md-4">
-                <div class="card text-white bg-success shadow-sm">
+                <div class="card text-white shadow-sm" style="background: linear-gradient(to right, #2a5298, #1e3c72);">
                     <div class="card-body">
                         <h5 class="card-title">Total Pemasukan</h5>
                         <p class="card-text">Rp {{ number_format($pemasukan, 0, ',', '.') }}</p>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card text-white bg-danger shadow-sm">
+                <div class="card text-white shadow-sm" style="background: linear-gradient(to right, #8e0e00, #1f1c18);">
                     <div class="card-body">
                         <h5 class="card-title">Total Pengeluaran</h5>
                         <p class="card-text">Rp {{ number_format($pengeluaran, 0, ',', '.') }}</p>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card text-white bg-primary shadow-sm">
+                <div class="card text-white shadow-sm" style="background: linear-gradient(to right, #203a43, #2c5364);">
                     <div class="card-body">
                         <h5 class="card-title">Saldo</h5>
                         <p class="card-text">Rp {{ number_format($saldo, 0, ',', '.') }}</p>
@@ -53,16 +53,16 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-primary w-100">Tampilkan</button>
+                <button class="btn btn-dark w-100">Tampilkan</button>
             </div>
         </form>
 
-        <!-- Ringkasan Dompet dan Grafik dalam 2 kolom -->
+        <!-- Ringkasan Dompet dan Grafik -->
         <div class="row g-4">
             <!-- Ringkasan Dompet -->
             <div class="col-lg-6">
                 <div class="card shadow-sm rounded-4 border-0 h-100">
-                    <div class="card-header bg-info text-white rounded-top-4">
+                    <div class="card-header text-dark" style="background: linear-gradient(to right, #d4af37, #cbb26a);">
                         <h5 class="mb-0">💼 Ringkasan Dompet</h5>
                     </div>
                     <div class="card-body">
@@ -93,8 +93,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4" class="text-center text-muted">Tidak ada dompet tersedia.
-                                            </td>
+                                            <td colspan="4" class="text-center text-muted">Tidak ada dompet tersedia.</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -104,13 +103,10 @@
                 </div>
             </div>
 
-            
-
-
             <!-- Grafik Keuangan -->
             <div class="col-lg-6">
                 <div class="card shadow-sm rounded-4 border-0 h-100">
-                    <div class="card-header bg-secondary text-white rounded-top-4">
+                    <div class="card-header text-white" style="background: linear-gradient(to right, #0f2027, #203a43);">
                         <h5 class="mb-0">📊 Grafik Keuangan Tahun {{ $tahunDipilih }}</h5>
                     </div>
                     <div class="card-body bg-light rounded-bottom-4">
@@ -120,6 +116,77 @@
             </div>
         </div>
     </div>
+
+    <style>
+    body {
+        background-color: #f9f5f0;
+        color: #3a3a3a;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+        background-color: #fffdfb;
+        border: none;
+        color: #3a3a3a;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .card-header {
+        background: linear-gradient(to right, #f6e58d, #f9ca24);
+        color: #3a3a3a;
+        border-bottom: none;
+        font-weight: 600;
+    }
+
+    .table {
+        color: #3a3a3a;
+    }
+
+    .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: #f3efea;
+    }
+
+    .bg-light {
+        background-color: #fefaf6 !important;
+    }
+
+    .form-select,
+    .form-label,
+    .form-control {
+        background-color: #fffaf0;
+        color: #3a3a3a;
+        border: 1px solid #c8b57f;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #d4af37;
+        box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-dark {
+        background-color: #d4af37;
+        border-color: #d4af37;
+        color: #fff;
+        font-weight: 500;
+    }
+
+    .btn-dark:hover {
+        background-color: #c39e2c;
+        border-color: #c39e2c;
+    }
+
+    .table-warning {
+        background-color: #fff6d6 !important;
+    }
+
+    .badge.bg-danger {
+        background-color: #d35400 !important;
+        font-size: 0.8rem;
+    }
+</style>
+
+
 @endsection
 
 @section('scripts')
@@ -137,22 +204,22 @@
                     data: {!! json_encode($pieData) !!},
                     backgroundColor: {!! json_encode(
                         $bulanLabels->map(function ($b, $i) {
-                            return 'hsl(' . $i * 30 . ',70%,60%)';
+                            return 'hsl(' . $i * 30 . ', 50%, 60%)';
                         }),
                     ) !!}
                 }] : [{
                         label: 'Pemasukan',
                         data: {!! json_encode($pemasukanData) !!},
-                        backgroundColor: 'rgba(75, 192, 192, 0.7)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(212, 175, 55, 0.6)', // emas
+                        borderColor: 'rgba(212, 175, 55, 1)',
                         fill: chartType === 'line',
                         tension: 0.3
                     },
                     {
                         label: 'Pengeluaran',
                         data: {!! json_encode($pengeluaranData) !!},
-                        backgroundColor: 'rgba(255, 99, 132, 0.7)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(100, 100, 100, 0.6)',
+                        borderColor: 'rgba(100, 100, 100, 1)',
                         fill: chartType === 'line',
                         tension: 0.3
                     }
